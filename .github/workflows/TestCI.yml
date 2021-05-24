@@ -43,3 +43,20 @@ jobs:
           architecture: Python interpreter
     # Used to pull python distributions from actions/python-versions. Since there's a default, this is typically not supplied by the user.
           token: ${{ github.token }}
+      - name: terraform-apply
+  # You may pin to the exact commit or the version.
+  # uses: dflook/terraform-apply@27cd16ab1a83b052d18d1619736a220ddc6ed3f0
+        uses: dflook/terraform-apply@v1.4.1
+        with:
+    # Path to the terraform configuration
+          path: /.../
+    # Name of the terraform workspace
+          workspace: subautterra
+    # Comma separated list of backend configs to set, e.g. 'foo=bar'
+          backend_config: /.../
+    # Path to a backend config file
+          backend_config_file: xyz=abc
+          var: /.../
+    # Comma separated list of var file paths
+          var_file: xyz.txt
+          parallelism: 0
